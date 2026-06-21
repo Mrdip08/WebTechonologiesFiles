@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <input type="text" id="cookieVal" placeholder="Cookie Value">
+    <button onclick="setCookie()">Set Cookie</button>
+    <button onclick="getCookie()">Read Cookie</button>
+    <button onclick="delCookie()">Delete Cookie</button>
+    <p id="output"></p>
+
+    <script>
+        function setCookie() {
+            const val = document.getElementById('cookieVal').value;
+            document.cookie = "username=" + val + ";path=/;max-age=3600";
+            document.getElementById('output').textContent = "Cookie set successfully.";
+        }
+        function getCookie() {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; username=`);
+            const matchedVal = parts.length === 2 ? parts.pop().split(';').shift() : "Not found";
+            document.getElementById('output').textContent = "Stored Cookie Value: " + matchedVal;
+        }
+        function delCookie() {
+            document.cookie = "username=;path=/;max-age=0";
+            document.getElementById('output').textContent = "Cookie deleted.";
+        }
+    </script>
+</body>
+</html>

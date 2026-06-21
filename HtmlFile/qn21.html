@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Invoice</title>
+    <style>
+        .invoice-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #eee;
+            font-family: Arial, sans-serif;
+            color: #555;
+        }
+        .top-row { display: flex; justify-content: space-between; margin-bottom: 40px; }
+        .invoice-details { text-align: right; }
+        .bill-ship { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="invoice-box">
+        <div class="top-row">
+            <div>
+                <h3>Your Company Name</h3>
+                <p>yourname@email.com</p>
+            </div>
+            <div class="invoice-details">
+                <h2>INVOICE</h2>
+                <p>Date: 2026-03-31</p>
+                <p>Invoice No: #00123</p>
+            </div>
+        </div>
+        <div class="bill-ship">
+            <div>
+                <strong>BILL TO:</strong>
+                <p>Client Name<br>Client Address</p>
+            </div>
+            <div>
+                <strong>SHIP TO:</strong>
+                <p>Delivery Name<br>Delivery Address</p>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Qty</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Web Design Services</td>
+                    <td>1</td>
+                    <td>$500.00</td>
+                    <td>$500.00</td>
+                </tr>
+                <tr>
+                    <td>Web Hosting Setup</td>
+                    <td>1</td>
+                    <td>$100.00</td>
+                    <td>$100.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

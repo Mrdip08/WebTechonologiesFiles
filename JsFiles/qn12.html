@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .clock { font-family: monospace; font-size: 32px; background: black; 
+                 color: lime; padding: 10px; width: 180px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div id="clock" class="clock">00:00:00</div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = now.toTimeString().split(' ')[0];
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>

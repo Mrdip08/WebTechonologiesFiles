@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .calc { width: 200px; padding: 10px; border: 1px solid #ccc; }
+        .display { width: 100%; height: 35px; text-align: right; margin-bottom: 10px; }
+        .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+        button { height: 35px; }
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <input type="text" id="disp" class="display" readonly>
+        <div class="buttons">
+            <button onclick="clearDisp()">C</button>
+            <button onclick="addChar('/')">/</button>
+            <button onclick="addChar('*')">*</button>
+            <button onclick="addChar('-')">-</button>
+            <button onclick="addChar('7')">7</button>
+            <button onclick="addChar('8')">8</button>
+            <button onclick="addChar('9')">9</button>
+            <button onclick="addChar('+')">+</button>
+            <button onclick="addChar('4')">4</button>
+            <button onclick="addChar('5')">5</button>
+            <button onclick="addChar('6')">6</button>
+            <button onclick="calcResult()">=</button>
+            <button onclick="addChar('1')">1</button>
+            <button onclick="addChar('2')">2</button>
+            <button onclick="addChar('3')">3</button>
+            <button onclick="addChar('0')">0</button>
+        </div>
+    </div>
+
+    <script>
+        const disp = document.getElementById('disp');
+        const addChar = val => disp.value += val;
+        const clearDisp = () => disp.value = '';
+        const calcResult = () => {
+            try { disp.value = eval(disp.value); } 
+            catch { disp.value = 'Error'; }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>table, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }</style>
+</head>
+<body>
+    <table id="country-table"></table>
+
+    <script>
+        const countries = [
+            "Nepal", "India", "China", "USA", "UK", "Canada", "Australia", "Japan", "Brazil", "Germany",
+            "France", "Italy", "Spain", "Russia", "South Africa", "Egypt", "Mexico", "Argentina", "Chile", "Peru",
+            "Norway", "Sweden", "Finland", "Denmark", "Netherlands", "Belgium", "Switzerland", "Austria", "Greece", "Turkey",
+            "South Korea", "Singapore", "Malaysia", "Thailand", "Vietnam", "Indonesia", "Philippines", "New Zealand", "Fiji", "Egypt",
+            "Kenya", "Nigeria", "Ghana", "Morocco", "Portugal", "Ireland", "Poland", "Ukraine", "Saudi Arabia", "UAE"
+        ];
+
+        let table = document.getElementById('country-table');
+        let row;
+        countries.forEach((country, index) => {
+            if (index % 6 === 0) row = table.insertRow();
+            let cell = row.insertCell();
+            cell.textContent = country;
+        });
+    </script>
+</body>
+</html>

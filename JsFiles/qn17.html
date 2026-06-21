@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="nav-info">Loading System Information...</div>
+
+    <script>
+        let info = `
+            <p><b>Browser Name:</b> ${navigator.appName}</p>
+            <p><b>Browser Version:</b> ${navigator.appVersion}</p>
+            <p><b>Platform (OS):</b> ${navigator.platform}</p>
+        `;
+        document.getElementById('nav-info').innerHTML = info;
+
+        // Get Geolocation
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                pos => {
+                    document.getElementById('nav-info').innerHTML += `
+                        <p><b>Geolocation:</b> Lat: ${pos.coords.latitude}, Long: ${pos.coords.longitude}</p>
+                    `;
+                },
+                err => {
+                    document.getElementById('nav-info').innerHTML += `<p><b>Geolocation:</b> Blocked/Unavailable</p>`;
+                }
+            );
+        }
+    </script>
+</body>
+</html>

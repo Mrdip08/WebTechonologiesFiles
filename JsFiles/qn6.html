@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <!-- Setup paragraphs -->
+    <p id="p1">First Paragraph Element</p>
+    <p id="p2">Second Paragraph Element</p>
+    <p id="p3">Third Paragraph Element</p>
+    <p id="p4">Fourth Paragraph Element</p>
+
+    <script>
+        // a. Get first paragraph by querySelector and tag name
+        const firstP = document.querySelector('p');
+
+        // b. Get each paragraph using querySelector and their ID
+        const para1 = document.querySelector('#p1');
+        const para2 = document.querySelector('#p2');
+        const para3 = document.querySelector('#p3');
+        const para4 = document.querySelector('#p4');
+
+        // c. Get all paragraphs as NodeList
+        const allParas = document.querySelectorAll('p');
+
+        // d. Loop through NodeList and log text content
+        allParas.forEach((p, idx) => console.log(`Paragraph ${idx + 1}: ${p.textContent}`));
+
+        // e. Set text content of fourth paragraph
+        para4.textContent = "Fourth Paragraph";
+
+        // f. Set ID and class using different attribute setting methods
+        para1.id = "new-p1";
+        para2.className = "styled-p";
+        para3.setAttribute("id", "new-p3");
+        para4.setAttribute("class", "styled-p");
+
+        // g. Change style of each paragraph
+        allParas.forEach(p => {
+            p.style.border = "1px solid black";
+            p.style.fontSize = "16px";
+            p.style.fontFamily = "sans-serif";
+            p.style.padding = "5px";
+        });
+
+        // h & i. Loop and give 1st/3rd green, 2nd/4th red. Set text content, ID, and class.
+        allParas.forEach((p, idx) => {
+            p.id = `para-${idx + 1}`;
+            p.className = `class-${idx + 1}`;
+            p.textContent = `Paragraph Number ${idx + 1}`;
+            
+            if (idx === 0 || idx === 2) {
+                p.style.color = "green";
+                p.style.background = "#e6ffe6";
+            } else {
+                p.style.color = "red";
+                p.style.background = "#ffe6e6";
+            }
+        });
+    </script>
+</body>
+</html>

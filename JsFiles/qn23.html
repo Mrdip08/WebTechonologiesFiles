@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <button onclick="fetchData()">Load User Profile</button>
+    <div id="output">Click button to fetch content dynamically.</div>
+
+    <script>
+        function fetchData() {
+            fetch('https://jsonplaceholder.typicode.com/users/1')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('output').innerHTML = `
+                        <p><b>Name:</b> ${data.name}</p>
+                        <p><b>Email:</b> ${data.email}</p>
+                        <p><b>City:</b> ${data.address.city}</p>
+                    `;
+                })
+                .catch(err => document.getElementById('output').innerText = "Fetch Error");
+        }
+    </script>
+</body>
+</html>

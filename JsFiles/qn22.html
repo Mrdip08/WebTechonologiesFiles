@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .thumbs img { width: 80px; height: 60px; cursor: pointer; margin-right: 5px; }
+        .main-img img { width: 400px; height: 300px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="thumbs">
+        <img class="thumb" src="https://picsum.photos/id/10/400/300" alt="Img 1">
+        <img class="thumb" src="https://picsum.photos/id/15/400/300" alt="Img 2">
+        <img class="thumb" src="https://picsum.photos/id/20/400/300" alt="Img 3">
+    </div>
+    <div class="main-img">
+        <img id="main" src="https://picsum.photos/id/10/400/300" alt="Main View">
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.thumb').click(function() {
+                $('#main').attr('src', $(this).attr('src'));
+            });
+        });
+    </script>
+</body>
+</html>

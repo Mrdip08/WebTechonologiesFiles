@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>table, th, td { border: 1px solid black; border-collapse: collapse; padding: 6px; }</style>
+</head>
+<body>
+    <table id="mytable">
+        <tr class="row-to-clone">
+            <td>Sample Text</td>
+            <td><button onclick="removeRow(this)">🗑️</button></td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="cloneRow()">Add New Row</button>
+
+    <script>
+        function cloneRow() {
+            const table = document.getElementById('mytable');
+            const row = table.querySelector('.row-to-clone');
+            if (row) {
+                const clone = row.cloneNode(true);
+                table.appendChild(clone);
+            }
+        }
+        function removeRow(btn) {
+            const row = btn.parentNode.parentNode;
+            if (document.querySelectorAll('#mytable tr').length > 1) {
+                row.parentNode.removeChild(row);
+            } else {
+                alert("Cannot delete the only remaining row.");
+            }
+        }
+    </script>
+</body>
+</html>

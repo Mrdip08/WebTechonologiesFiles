@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .error { color: red; font-size: 12px; display: block; }
+        form { width: 300px; display: flex; flex-direction: column; gap: 8px; }
+    </style>
+</head>
+<body>
+    <form id="regForm" onsubmit="return validateForm(event)">
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="text" id="address" placeholder="Address">
+        <input type="text" id="username" placeholder="Username">
+        <input type="text" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <input type="text" id="website" placeholder="Website URL">
+        <input type="text" id="phone" placeholder="Phone Number">
+        
+        <div>
+            Gender: 
+            <input type="radio" name="gender" value="Male" id="m"> Male
+            <input type="radio" name="gender" value="Female" id="f"> Female
+        </div>
+        
+        <select id="course">
+            <option value="">--Select Course--</option>
+            <option value="BIM">BIM</option>
+            <option value="BCA">BCA</option>
+        </select>
+        
+        <button type="submit">Submit Form</button>
+        <span id="formError" class="error"></span>
+    </form>
+
+    <script>
+        function validateForm(e) {
+            e.preventDefault();
+            const err = document.getElementById('formError');
+            err.textContent = "";
+
+            const name = document.getElementById('name').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const phone = document.getElementById('phone').value.trim();
+            const genderChecked = document.querySelector('input[name="gender"]:checked');
+            const course = document.getElementById('course').value;
+
+            // Name
+            if (!name || /\d/.test(name)) return showErr("Invalid Name (No numbers allowed)");
+            // Address
+            if (!address) return showErr("Address is required");
+            // Username (No space, special character except underscore)
+            if (!username || !/^[a-zA-Z0-9_]+$/.test(username)) return showErr("Invalid Username (Alphanumeric & underscore only)");
+            // Email (Must contain @)
+            if (!email || !email.includes('@')) return showErr("Invalid Email (Must contain '@')");
+            // Password Validation (8+ chars, 1 digit, 1 upper, 1 lower, 1 special char)
+            const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passRegex.test(password)) return showErr("Weak Password (8+ chars, 1 upper, 1 lower, 1 digit, 1 special)");
+            // Phone (Starts with 98/97/96, numbers only)
+            if (!/^(98|97|96)\d{8}$/.test(phone)) return showErr("Invalid Phone (Must be 10 digits and start with 98/97/96)");
+            // Gender
+            if (!genderChecked) return showErr("Select Gender");
+            // Course Dropdown Selection
+            if (!course) return showErr("Select a Course");
+
+            alert("Form validated and submitted successfully!");
+            return true;
+        }
+
+        function showErr(msg) {
+            document.getElementById('formError').textContent = msg;
+            return false;
+        }
+    </script>
+</body>
+</html>

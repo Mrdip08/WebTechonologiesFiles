@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let n1 = parseFloat(prompt("Enter first number:"));
+        let n2 = parseFloat(prompt("Enter second number:"));
+        if (!isNaN(n1) && !isNaN(n2)) {
+            document.write(`
+                <p>Addition: ${n1 + n2}</p>
+                <p>Subtraction: ${n1 - n2}</p>
+                <p>Multiplication: ${n1 * n2}</p>
+                <p>Division: ${n2 !== 0 ? n1 / n2 : 'Cannot divide by zero'}</p>
+            `);
+        } else {
+            document.write("Invalid inputs.");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Responsive Layout</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .wrapper { display: flex; flex-direction: column; min-height: 100vh; }
+        header, footer { background: #e74c3c; padding: 20px; text-align: center; color: white; }
+        .content-area { display: flex; flex: 1; flex-direction: column; }
+        .main { background: #ecf0f1; padding: 20px; flex: 2; }
+        .left { background: #3498db; padding: 20px; flex: 1; }
+        .right { background: #2ecc71; padding: 20px; flex: 1; }
+
+        /* Tablet Layout */
+        @media (min-width: 600px) {
+            .content-area { flex-direction: row; flex-wrap: wrap; }
+            .main { flex: 1 1 100%; order: 1; }
+            .left { flex: 1 1 50%; order: 2; }
+            .right { flex: 1 1 50%; order: 3; }
+        }
+
+        /* Desktop Layout */
+        @media (min-width: 900px) {
+            .content-area { flex-direction: row; flex-wrap: nowrap; }
+            .left { order: 1; flex: 1; }
+            .main { order: 2; flex: 2; }
+            .right { order: 3; flex: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>Header</header>
+        <div class="content-area">
+            <div class="left">Left Sidebar</div>
+            <div class="main">Main Content Area</div>
+            <div class="right">Right Sidebar</div>
+        </div>
+        <footer>Footer</footer>
+    </div>
+</body>
+</html>

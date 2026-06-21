@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <form onsubmit="calculateAge(event)">
+        <label>Select DOB: </label>
+        <input type="date" id="dob" required>
+        <button type="submit">Calculate Age</button>
+    </form>
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateAge(e) {
+            e.preventDefault();
+            let dobValue = document.getElementById('dob').value;
+            let dob = new Date(dobValue);
+            let diff = Date.now() - dob.getTime();
+            let ageDate = new Date(diff);
+            let age = Math.abs(ageDate.getUTCFullYear() - 1970);
+            document.getElementById('result').innerText = `Your age is: ${age} years`;
+        }
+    </script>
+</body>
+</html>

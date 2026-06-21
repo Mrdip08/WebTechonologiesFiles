@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flexbox Layout</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .box {
+            background-color: #f39c12;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .box1 { flex: 1 1 100%; background-color: #ffb74d; }
+        .box2 { flex: 1 1 48%; background-color: #81c784; }
+        .box3 { flex: 1 1 48%; background-color: #4db6ac; }
+        .box4 { flex: 1 1 30%; background-color: #e57373; }
+        .box5 { flex: 1 1 30%; background-color: #ffd54f; }
+        .box6 { flex: 1 1 30%; background-color: #a1887f; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">Content Area 1</div>
+        <div class="box box2">Content Area 2</div>
+        <div class="box box3">Content Area 3</div>
+        <div class="box box4">Content Area 4</div>
+        <div class="box box5">Content Area 5</div>
+        <div class="box box6">Content Area 6</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hover Effect Gallery</title>
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background: black;
+            height: 200px;
+        }
+        .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s, opacity 0.5s, filter 0.5s;
+        }
+        
+        /* Zoom In Effect */
+        .zoom-in:hover img { transform: scale(1.2); }
+
+        /* Fade Effect */
+        .fade:hover img { opacity: 0.6; }
+
+        /* Blur Effect */
+        .blur:hover img { filter: blur(5px); }
+
+        /* Grayscale to Color Effect */
+        .grayscale img { filter: grayscale(100%); }
+        .grayscale:hover img { filter: grayscale(0%); }
+    </style>
+</head>
+<body>
+    <h2 align="center">Hover-Effect Gallery</h2>
+    <div class="gallery">
+        <div class="item zoom-in">
+            <img src="https://via.placeholder.com/200" alt="Zoom In">
+        </div>
+        <div class="item fade">
+            <img src="https://via.placeholder.com/200" alt="Fade">
+        </div>
+        <div class="item blur">
+            <img src="https://via.placeholder.com/200" alt="Blur">
+        </div>
+        <div class="item grayscale">
+            <img src="https://via.placeholder.com/200" alt="Grayscale">
+        </div>
+    </div>
+</body>
+</html>

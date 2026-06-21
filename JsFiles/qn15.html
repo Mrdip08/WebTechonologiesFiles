@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>#target-p { padding: 10px; border: 1px solid #ccc; font-size: 12pt; }</style>
+</head>
+<body>
+    <p id="target-p">This is the demonstration paragraph.</p>
+    
+    <button onclick="changeBg()">Change Background</button>
+    <button onclick="changeParaBg()">Change Paragraph Background</button>
+    <button onclick="toggleVisibility(false)">Hide Paragraph</button>
+    <button onclick="toggleVisibility(true)">Show Paragraph</button>
+    <button onclick="adjustFont(2)">Increase Font (+2pt)</button>
+    <button onclick="adjustFont(-2)">Decrease Font (-2pt)</button>
+    <button onclick="resetFont()">Reset Font (12pt)</button>
+    <button onclick="changeTextColor()">Change Text Color</button>
+
+    <script>
+        const p = document.getElementById('target-p');
+        let currentSize = 12;
+
+        const changeBg = () => document.body.style.backgroundColor = "lightblue";
+        const changeParaBg = () => p.style.backgroundColor = "yellow";
+        const toggleVisibility = (show) => p.style.display = show ? "block" : "none";
+        const changeTextColor = () => p.style.color = "blue";
+        const resetFont = () => { currentSize = 12; p.style.fontSize = currentSize + "pt"; };
+        
+        function adjustFont(amount) {
+            currentSize += amount;
+            p.style.fontSize = currentSize + "pt";
+        }
+    </script>
+</body>
+</html>

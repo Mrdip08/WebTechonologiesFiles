@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>#target { width: 150px; height: 100px; background: orange; margin: 10px 0; }</style>
+</head>
+<body>
+    <div id="target">Target Element</div>
+    
+    <button id="btnHide">Hide</button>
+    <button id="btnShow">Show</button>
+    <button id="btnToggle">Toggle</button>
+    <button id="btnSlideUp">Slide Up</button>
+    <button id="btnSlideDown">Slide Down</button>
+    <button id="btnCss">Apply CSS</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#btnHide').click(() => $('#target').hide());
+            $('#btnShow').click(() => $('#target').show());
+            $('#btnToggle').click(() => $('#target').toggle());
+            $('#btnSlideUp').click(() => $('#target').slideUp());
+            $('#btnSlideDown').click(() => $('#target').slideDown());
+            $('#btnCss').click(() => $('#target').css({'background': 'blue', 'color': 'white', 'border': '2px solid black'}));
+        });
+    </script>
+</body>
+</html>
